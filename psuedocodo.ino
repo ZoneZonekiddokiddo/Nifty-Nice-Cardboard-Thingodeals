@@ -26,7 +26,7 @@ void loop()
 {
    switchValA = digitalRead(switchPin);
 
-  if(switchValA != prevswitchValA)
+  if(switchValA != prevswitchValA)     // servos will only run if switch is clicked 
   {
     if (switchValA == HIGH)
     {
