@@ -1,3 +1,5 @@
+//Test with in-cardboard setting!
+
 #include <Servo.h>
 const int switchPinA = 2;
 const int switchPinB = 3;
