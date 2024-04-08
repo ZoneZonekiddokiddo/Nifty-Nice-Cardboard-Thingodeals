@@ -36,7 +36,7 @@ void loop()
   {
     if (switchValA == HIGH)
     {
-      myservoA.write(180);
+      myservoA.write(180);             //brans
     }
     
   }
