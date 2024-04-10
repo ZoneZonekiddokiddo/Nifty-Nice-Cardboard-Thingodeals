@@ -1,4 +1,4 @@
-*/
+/*
   Journey 
   by the StoryCrafters- Annika Quinn and Montana Roper
 */
