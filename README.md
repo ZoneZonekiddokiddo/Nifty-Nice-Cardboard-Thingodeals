@@ -1,1 +1,1 @@
-// put description of project here
+// This project is a retelling of the final scene from the game journey in which the main character, the traveler, trying to reach the summit of a mountain freezes just outside of it. the traveller is then revived by four robed figures and flies up the mountain interacting with creatures along the way and finally reaches the top and enters the summit to be reincarnated. 
