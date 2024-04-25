@@ -5,9 +5,9 @@
 #include <Servo.h>
 
 //---------------------------------------------------interaction 1 set up------------------
-const int switchPinA = 8;
+const int switchPinA = 11;
 Servo myservoA;  
-int pos = 90;   
+int pos = 100;   
 unsigned long previousMillis = 0;  
 const long interval = 50;  
 int increment = -1;  
@@ -15,7 +15,7 @@ int increment = -1;
 
 
 //---------------------------------------------------interaction 2 set up------------------
-const int switchPinB = 8;
+const int switchPinB = 5;
 int switchValB = 0;
 int prevSwitchValB = 0;
 Servo myservoB;
@@ -24,18 +24,18 @@ Servo myservoB;
 
 
 //---------------------------------------------------interaction 4 set up------------------
-const int switchPinC = 8;
 Servo myservoA;  
-int pos = 90;   
+const int switchPinC = 2;
+int pos = 30;   
 unsigned long previousMillis = 0;  
 const long interval = 50;  
-int increment = -1;  
+int incrementB = -1;  
 //------------------------------------------------------------------------------------------
 
 
 //---------------------------------------------------interaction 5 set up------------------
-const int switchPinE = 12;
-const int ledPin = 2;
+const int switchPinE = 10;
+const int ledPin = 13;
 //------------------------------------------------------------------------------------------
 
 
@@ -43,19 +43,21 @@ void setup() {
 
 //---------------------------------------------- interaction 1-------------------------------------------
   pinMode(switchPinA, INPUT);
-  myservoA.attach(4);  
+  myservoA.attach(9);  
+  myservoA.write(0);  
 
 //--------------------------------------------------------------------------------------------------------
 
 //---------------------------------------------- interaction 2-------------------------------------------
   pinMode(switchPinB, INPUT);
-  myservoB.attach(6);  
+  myservoB.attach(7);  
   myservoB.write(0);
 //--------------------------------------------------------------------------------------------------------
 
 //---------------------------------------------- interaction 4-------------------------------------------
    pinMode(switchPinA, INPUT);
-  myservoA.attach(7);  
+  myservoC.attach(3);  
+   myservoC.write(0); 
 //--------------------------------------------------------------------------------------------------------
 
 //---------------------------------------------- interaction 5-------------------------------------------
@@ -76,11 +78,11 @@ unsigned long currentMillis = millis();
   if (currentMillis - previousMillis >= interval) {
     previousMillis = currentMillis; 
     if (digitalRead(switchPinA) == HIGH) {
-      myservoA.write(pos);  // tell servo to go to position in variable 'pos'
+      myservoA.write(pos); 
       pos += increment;  // increment or decrement position based on the direction
 
-      // If the position reaches 0 or 180, change the direction of movement
-      if (pos <= 0 || pos >= 180) {
+      // If the position reaches 60 or 100, change the direction of movement
+      if (pos <= 60 || pos >= 100) {
         increment = -increment;  // reverse the direction
       }
     } else {
@@ -93,7 +95,7 @@ unsigned long currentMillis = millis();
 
 
  //-------------------------------------------- Interaction 2----------------------------------------------------------- 
- //when the switch is pressed down the servo rotates to 180 degrees and when the switch is not being pressed the servo is at 0 degrees
+ //when the switch is pressed down the servo rotates to 180 degrees 
  switchValB = digitalRead(switchPinB); 
 
   if (switchValB != prevSwitchValB)
@@ -122,19 +124,19 @@ unsigned long currentMillis = millis();
 
 
    //------------------------------------------------- Interaction 4--------------------------------------------------------------
-
+  // when the switch is pressed the servo alternates between 0 and 30 degrees and upon reaching one reverses until the other direction is reached
 
 unsigned long currentMillis = millis();  
 
   if (currentMillis - previousMillis >= interval) {
     previousMillis = currentMillis; 
     if (digitalRead(switchPinA) == HIGH) {
-      myservoC.write(pos);  // tell servo to go to position in variable 'pos'
-      pos += increment;  // increment or decrement position based on the direction
+      myservoC.write(pos); 
+      pos += incrementB;  
 
-      // If the position reaches 0 or 180, change the direction of movement
-      if (pos <= 0 || pos >= 180) {
-        increment = -increment;  // reverse the direction
+      // If the position reaches 0 or 30, change the direction of movement
+      if (pos <= 0 || pos >= 30) {
+        incrementB = -incrementB; 
       }
     } else {
       myservoC.write(0);
