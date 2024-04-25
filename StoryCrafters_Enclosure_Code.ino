@@ -72,7 +72,7 @@ void setup() {
 void loop() {
 
 //--------------------------------------------Interaction 1--------------------------------------------------------
-// when the switch is pressed down the servo will "wiggle" back and forth from 180 to 0 degrees and when the switch is not being pressed the servo will be at 0 degrees
+// when the switch is pressed down the servo will "wiggle" back and forth from 180 to 0 degrees
 unsigned long currentMillis = millis();  
 
   if (currentMillis - previousMillis >= interval) {
